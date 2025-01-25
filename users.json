@@ -1,5 +1,11 @@
 {
     "Gabriel": {
         "password": "chiffrer_par_RSA_plus_tard"
+    },
+    "test": {
+        "password": "test1"
+    },
+    "Exemple": {
+        "password": "google"
     }
 }
