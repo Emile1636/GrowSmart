@@ -106,12 +106,14 @@ class Accueil:
 
         if not self.username:
             self.entry_username.configure(placeholder_text="Veuillez remplir ce champs", placeholder_text_color="#F14156", font=("Helvetica", 18))
-        
+            return
+            
         if not self.password:
             self.entry_password.configure(placeholder_text="Veuillez remplir ce champs", placeholder_text_color="#F14156", font=("Helvetica", 18))
 
         if self.username in self.liste_utilisateurs:
             ...
+            # À continuer
 
     def inscription(self):
         self.masquer_accueil()
