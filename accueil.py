@@ -10,15 +10,6 @@ class Accueil:
         self.screen_width = self.master.winfo_screenwidth()
         self.screen_height = self.master.winfo_screenheight()
 
-    def set_nom_user(self, pseudo):
-        self.nom_user = pseudo
-
-    def get_nom_user(self):
-        if not self.username:
-            return "Inconnu"
-        else:
-            return self.username
-
     def afficher_accueil(self):
         # Couleurs (accès facile pour changer)
         # --- Texte
@@ -50,7 +41,7 @@ class Accueil:
         # Sous-titres
         self.label_subtitle = ctk.CTkLabel(self.main_frame,
             text="Surveillez, gérez, et faites fleurir ",
-            font=("Helvetica", 32, "italic"),
+            font=("Aptos", 32, "italic"), # Aptos pour ne pas couper la lettre g
             text_color=subtitle_color,
         )
         self.label_subtitle.grid(row=1, column=0, columnspan=2, pady=(10, 50))
@@ -106,14 +97,33 @@ class Accueil:
 
         if not self.username:
             self.entry_username.configure(placeholder_text="Veuillez remplir ce champs", placeholder_text_color="#F14156", font=("Helvetica", 18))
-            return
-            
+            return 
+        
         if not self.password:
             self.entry_password.configure(placeholder_text="Veuillez remplir ce champs", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            return
 
-        if self.username in self.liste_utilisateurs:
-            ...
-            # À continuer
+        if self.username not in self.liste_utilisateurs:
+            self.entry_username.delete(0, "end")
+            self.entry_username.configure(placeholder_text="Nom d'utilisateur introuvable", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            return
+        else: # Modifier pour faire un early return ici (Émile)
+            # Modifier cette méthode pour compatibiliter RSA
+            #
+            #
+            self.RSA_password = self.liste_utilisateurs[self.username]["password"]
+            if self.RSA_password == self.password:
+                self.masquer_accueil()
+
+                # À modifier pour appler une page principale (sortir de la class accueil)
+                #
+                self.label_register_title = ctk.CTkLabel(self.main_frame, text=" À venir ",font=("Aptos", 40, "bold", "italic"), text_color="#4D4D4D")
+                self.label_register_title.grid(row=0, column=0, columnspan=2, pady=(50, 20))
+                #
+                #
+            else:
+                self.entry_password.delete(0, "end")
+                self.entry_password.configure(placeholder_text="Mot de passe erroné", placeholder_text_color="#F14156", font=("Helvetica", 18))
 
     def inscription(self):
         self.masquer_accueil()
@@ -243,6 +253,7 @@ class Accueil:
     def masquer_formulaire_inscription(self):
         self.label_register_title.grid_remove()
         self.entry_new_username.grid_remove()
+        self.entry_new_password.grid_remove()
         self.entry_confirm_password.grid_remove()
         self.button_register_submit.grid_remove()
         self.button_back.grid_remove()
