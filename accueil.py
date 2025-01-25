@@ -1,26 +1,23 @@
 # accueil.py
 import customtkinter as ctk
+import json
 
 class Accueil:
     def __init__(self, master, main_frame, app):
         self.master = master
         self.main_frame = main_frame
-        self.nom_user = ""
         self.app = app
         self.screen_width = self.master.winfo_screenwidth()
         self.screen_height = self.master.winfo_screenheight()
-
-    def set_formulaire(self, formulaire):
-        self.formulaire = formulaire
 
     def set_nom_user(self, pseudo):
         self.nom_user = pseudo
 
     def get_nom_user(self):
-        if self.nom_user == "":
+        if not self.username:
             return "Inconnu"
         else:
-            return self.nom_user
+            return self.username
 
     def afficher_accueil(self):
         # Couleurs (accès facile pour changer)
@@ -101,15 +98,19 @@ class Accueil:
         self.button_register.grid(row=6, column=0, columnspan=2, pady=(10, 10))
 
     def connexion(self):
-        username = self.entry_username.get()
-        password = self.entry_password.get()
+        self.username = self.entry_username.get()
+        self.password = self.entry_password.get()
 
-        if username == "" or password == "":
-            print("Veuillez remplir tous les champs.")
-            # Vérification ...
-        else:
-            print(f"Connexion réussie pour l'utilisateur: {username}")
-            # self.go_to_dashboard()  # exemple
+        with open("users.json", "r") as f: # Récuéperer les identifiants des utilisateurs
+            self.liste_utilisateurs = json.load(f)
+
+        if not self.username:
+            self.entry_username.configure(placeholder_text="Veuillez remplir ce champs", placeholder_text_color="#F14156", font=("Helvetica", 18))
+        
+        if not self.password:
+            self.entry_password.configure(placeholder_text="Veuillez remplir ce champs", placeholder_text_color="#F14156", font=("Helvetica", 18))
+
+        if self.username in self.liste_utilisateurs:
             ...
 
     def inscription(self):
@@ -117,38 +118,38 @@ class Accueil:
         self.afficher_formulaire_inscription()
 
     def afficher_formulaire_inscription(self):
-        self.label_register_title = ctk.CTkLabel(
-            self.main_frame, text="Créer un compte",
+        self.label_register_title = ctk.CTkLabel(self.main_frame, 
+            text="Créer un compte",
             font=("Helvetica", 32, "bold"), text_color="#4D4D4D"
         )
         self.label_register_title.grid(row=0, column=0, columnspan=2, pady=(50, 20))
 
-        self.entry_new_username = ctk.CTkEntry(
-            self.main_frame, placeholder_text="Nom d'utilisateur",
+        self.entry_new_username = ctk.CTkEntry(self.main_frame, 
+            placeholder_text="Nom d'utilisateur",
             font=("Helvetica", 18), width=350, height=50,
             corner_radius=15, fg_color="#ffffff", text_color="#000000",
             border_width=1, border_color="#000000"
         )
         self.entry_new_username.grid(row=1, column=0, columnspan=2, pady=(10, 10))
 
-        self.entry_new_password = ctk.CTkEntry(
-            self.main_frame, placeholder_text="Mot de passe", show="*",
+        self.entry_new_password = ctk.CTkEntry(self.main_frame,
+            placeholder_text="Mot de passe", show="*",
             font=("Helvetica", 18), width=350, height=50,
             corner_radius=15, fg_color="#ffffff", text_color="#000000",
             border_width=1, border_color="#000000"
         )
         self.entry_new_password.grid(row=2, column=0, columnspan=2, pady=(10, 10))
 
-        self.entry_confirm_password = ctk.CTkEntry(
-            self.main_frame, placeholder_text="Confirmer le mot de passe", show="*",
+        self.entry_confirm_password = ctk.CTkEntry(self.main_frame, 
+            placeholder_text="Confirmer le mot de passe", show="*",
             font=("Helvetica", 18), width=350, height=50,
             corner_radius=15, fg_color="#ffffff", text_color="#000000",
             border_width=1, border_color="#000000"
         )
         self.entry_confirm_password.grid(row=3, column=0, columnspan=2, pady=(10, 30))
 
-        self.button_register_submit = ctk.CTkButton(
-            self.main_frame, text="S'inscrire",
+        self.button_register_submit = ctk.CTkButton(self.main_frame, 
+            text="S'inscrire",
             command=self.submit_registration,
             fg_color="#355E3B", hover_color="#294a2e",
             text_color="#FFFFFF", width=140, height=40,
@@ -156,8 +157,8 @@ class Accueil:
         )
         self.button_register_submit.grid(row=4, column=0, columnspan=2, pady=(10, 10))
 
-        self.button_back = ctk.CTkButton(
-            self.main_frame, text="Retour",
+        self.button_back = ctk.CTkButton(self.main_frame, 
+            text="Retour",
             command=lambda:[self.masquer_formulaire_inscription(), self.afficher_accueil()],
             fg_color="#CCCCCC", hover_color="#AAAAAA",
             text_color="#000000", width=140, height=40,
@@ -166,20 +167,67 @@ class Accueil:
         self.button_back.grid(row=5, column=0, columnspan=2, pady=(10, 10))
 
     def submit_registration(self):
-        new_username = self.entry_new_username.get()
-        new_password = self.entry_new_password.get()
-        confirm_password = self.entry_confirm_password.get()
+        self.new_username = self.entry_new_username.get()
+        self.new_password = self.entry_new_password.get()
+        self.confirm_password = self.entry_confirm_password.get()
 
-        if new_username == "" or new_password == "" or confirm_password == "":
-            print("Veuillez remplir tous les champs.")
-        elif new_password != confirm_password:
-            print("Les mots de passe ne correspondent pas.")
-        else:
-            print(f"Inscription réussie pour l'utilisateur: {new_username}")
-            self.masquer_formulaire_inscription()
-            self.afficher_accueil()
-            # Ajouter plusieurs choses (databse etc)
-    
+        with open("users.json", "r") as f: # Récuéperer les identifiants des utilisateurs
+            self.liste_utilisateurs = json.load(f)
+
+        # return partout, car ca ne sert a rien d'aller plus loins si les conditions ne sont pas respecté
+        # cela explique la foulé de return pour toutes les conditions suivantes 
+
+        if self.new_username in self.liste_utilisateurs:
+            self.entry_new_username.delete(0, "end")
+            self.entry_new_username.configure(placeholder_text="Nom d'utilisateur déjà utilisé", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            return 
+        
+        if not self.new_username:
+            self.entry_new_username.configure(placeholder_text="Veuillez remplir ce champs", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            return 
+        
+        if not self.new_password:
+            self.entry_new_password.configure(placeholder_text="Veuillez remplir ce champs", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            return
+        
+        if not self.confirm_password:
+            self.entry_confirm_password.configure(placeholder_text="Veuillez remplir ce champs", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            return 
+                   
+        if self.new_password != self.confirm_password:
+            self.entry_new_password.delete(0, "end")
+            self.entry_new_password.configure(placeholder_text="Mots de passes non identiques", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            self.entry_confirm_password.delete(0, "end")
+            return
+        
+        if len(self.new_username) < 4:
+            self.entry_new_username.delete(0, "end")
+            self.entry_new_username.configure(placeholder_text="Nom d'utilisateur trop court", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            return
+        
+        if len(self.new_password) < 5:
+            self.entry_new_password.delete(0, "end")
+            self.entry_new_password.configure(placeholder_text="Mot de passe trop court", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            self.entry_confirm_password.delete(0, "end")
+            return
+        
+        if self.new_username == self.new_password:
+            self.entry_new_password.delete(0, "end")
+            self.entry_new_password.configure(placeholder_text="Doit être différent du nom d'utilisateur", placeholder_text_color="#F14156", font=("Helvetica", 18))
+            self.entry_confirm_password.delete(0, "end")
+            return           
+
+        # Appeler une fonction pour faire le chiffrement RSA de self.new_password 
+        #
+        #
+        
+        # Important d'avoir mis des return après les vérifiactions précédentes sinon le code suivant s'execute quand même
+        self.liste_utilisateurs[self.new_username] = {"password": self.new_password } # self.new_password_RSA pour plus tard
+        with open("users.json", "w") as f:
+            json.dump(self.liste_utilisateurs, f, indent=4)
+        self.masquer_formulaire_inscription()
+        self.afficher_accueil()
+
     def masquer_accueil(self):
         self.label_grow.grid_remove()
         self.label_smart.grid_remove()
