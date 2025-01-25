@@ -99,7 +99,6 @@ class Accueil:
             font=("Arial", 16, "bold")
         )
         self.button_register.grid(row=6, column=0, columnspan=2, pady=(10, 10))
-# ------------------------------------------------------------------------------------------------
 
     def connexion(self):
         username = self.entry_username.get()
@@ -179,8 +178,8 @@ class Accueil:
             print(f"Inscription réussie pour l'utilisateur: {new_username}")
             self.masquer_formulaire_inscription()
             self.afficher_accueil()
-            # Add logic to save new user information (e.g., database)
-
+            # Ajouter plusieurs choses (databse etc)
+    
     def masquer_accueil(self):
         self.label_grow.grid_remove()
         self.label_smart.grid_remove()
