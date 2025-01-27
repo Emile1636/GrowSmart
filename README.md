@@ -13,7 +13,7 @@ Simple  et intuitive, elle optimise la croissance de vos plantes et **vous accom
 | Fonctionnalités de base| Évolutions prioritaires|Évolutions secondaires|
 | :-------------:|:-------------:|:-----:|
 | Gestion des profiles| Récolte des données en temps réel | Arrosage avec pompe à eau |
-| Analyse des données| Implémenter des alertes| - |
+| Analyse des données| Implémenter des alertes| Conseiller selon les données récoltées |
 | Visualisation des données | - | - |
 
 ## Intégrations des notions scientifiques
