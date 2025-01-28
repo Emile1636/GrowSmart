@@ -3,12 +3,14 @@ import tkinter as tk
 from customtkinter import CTk
 from interface import Interface
 
+
 class Application(CTk): # Class principale 
     def __init__(self):
         # Initialisation de la fenêtre principale
         super().__init__()
         self.title("GrowSmart")
-        self.attributes("-fullscreen", True)
+        self.attributes('-fullscreen', False)
+        self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+{-110}")
 
         self.bar_menu()
         self.interface = Interface(self)
