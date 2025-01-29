@@ -27,17 +27,20 @@ Simple  et intuitive, elle optimise la croissance de vos plantes et **vous accom
 ### Ondes et physique moderne
  - **Énergie des photons** : Mesurer la quantité d'énergie brut absorbée par la lumière
 
+> [!NOTE]
+> L'implémentation des notions scientifiques est l'objectif au coeur du projet.
+
 ## Technologies embarqués
 
 ### Capteurs
  - Capteur d'humidité du sol : *Capacitive soil moisture sensor v1.2*
- - Module de capteur de température et d'humidité : *DHT22*
+ - Capteur de température et d'humidité ambiant : *DHT22*
+ - Capteur d'intensité l'umineuse : *BH1750FVI*
 ### Contrôleurs
- - Raspberry Pi 5
  - Arduino Mega
+ - Raspberry Pi 5
 ### Accesoires
- - Cables divers et platine d'expérimentation sans soudure
-
+ - Cables divers, résistances et platine d'expérimentation (*breadboard*)
 ## Contexte et objectif
 
 Ce projet fait partie d'un cours de fin de parcours où l'applications des apprentissage spécifique au programme de SIM *(Sciences informatique et mathématiques)* est l'objectif principale. Merci de votre compréhension.
