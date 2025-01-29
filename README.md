@@ -20,7 +20,7 @@ Simple  et intuitive, elle optimise la croissance de vos plantes et **vous accom
 
 ### Mathématiques discrètes
  - **Chiffrement RSA** : Chiffrer les informations de connexion des utilisateurs
- - **Graph** : Représentation visuel en tout genre sur les plants et leur environnement 
+ - **Graph** : Représentation visuel en tout genre sur les plantes et leur environnement 
 ### Calcul différentiel 
  - **Dériver et taux de variation** : Détecter l'intensiter des variations de l'environnement afin d'alerter l'utilisateur
  - **Prédications grâce aux fonctions** : Prédire les fluctuations de l'environnement
