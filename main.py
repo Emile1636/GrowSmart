@@ -10,7 +10,7 @@ class Application(CTk): # Class principale
         super().__init__()
         self.title("GrowSmart")
         # self.attributes('-fullscreen', False) #Émile
-        self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+{-110}")
+        self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+{-100}")
     
 
         self.bar_menu()
