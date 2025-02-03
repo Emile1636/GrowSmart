@@ -1,7 +1,7 @@
 # interface.py
 import tkinter as tk
 from customtkinter import CTkFrame
-from accueil import Accueil
+from formulaire import Formulaire
 
 class Interface(CTkFrame):
     def __init__(self, master=None):
@@ -16,5 +16,5 @@ class Interface(CTkFrame):
         self.main_frame.grid(sticky="nsew")
         self.main_frame.place(relx=0.5, rely=0.5, anchor="center")
 
-        self.accueil = Accueil(self.master, self.main_frame, self)
-        self.accueil.afficher_accueil()
+        self.formulaire = Formulaire(self.master, self.main_frame, self)
+        self.formulaire.afficher_formulaire()
