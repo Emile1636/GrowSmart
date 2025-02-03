@@ -41,6 +41,10 @@ Simple  et intuitive, elle optimise la croissance de vos plantes et **vous accom
  - Raspberry Pi 5
 ### Accesoires
  - Cables divers, résistances et platine d'expérimentation (*breadboard*)
+
+> [!NOTE]
+> Les données sont récoltées par les capteurs tous les 15 minutes. Les informations brutes, une fois traitées par l'Arduino, sont alors envoyées au Raspberry Pi. Celui-ci actualise alors un fichier csv accessible par tous et consultable en ligne contenant les données traitées une première fois. L'application se charge alors de récoler ces données, de les associer à l'utilisateur et de les analyser. À noter qu'un historique de 24h est consultable au maximum, soit 96 prises de données.
+
 ## Contexte et objectif
 
 Ce projet fait partie d'un cours de fin de parcours où l'applications des apprentissage spécifique au programme de SIM *(Sciences informatique et mathématiques)* est l'objectif principale. Merci de votre compréhension.
