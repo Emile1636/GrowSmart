@@ -22,7 +22,7 @@ def gerer_limite_lignes(nom_fichier):
         
     df = pd.read_csv(nom_fichier, header=None)
     
-    if len(df) > 10:
+    if len(df) > 96:
         df = df.iloc[1:].reset_index(drop=True)
         df.to_csv(nom_fichier, index=False, header=False)
 
