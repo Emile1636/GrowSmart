@@ -1,8 +1,8 @@
-# accueil.py
+# formulaire.py
 import customtkinter as ctk
 import json
 
-class Accueil:
+class Formulaire:
     def __init__(self, master, main_frame, app):
         self.master = master
         self.main_frame = main_frame
@@ -10,7 +10,7 @@ class Accueil:
         self.screen_width = self.master.winfo_screenwidth()
         self.screen_height = self.master.winfo_screenheight()
 
-    def afficher_accueil(self):
+    def afficher_formulaire(self):
         # Couleurs (accès facile pour changer)
         # --- Texte
         background_color = "#F0F0F0"
@@ -113,9 +113,9 @@ class Accueil:
             #
             self.RSA_password = self.liste_utilisateurs[self.username]["password"]
             if self.RSA_password == self.password:
-                self.masquer_accueil()
+                self.masquer_formulaire()
 
-                # À modifier pour appler une page principale (sortir de la class accueil)
+                # À modifier pour appler une page principale (sortir de la class formulaire)
                 #
                 self.label_register_title = ctk.CTkLabel(self.main_frame, text=" À venir ",font=("Aptos", 40, "bold", "italic"), text_color="#4D4D4D")
                 self.label_register_title.grid(row=0, column=0, columnspan=2, pady=(50, 20))
@@ -126,7 +126,7 @@ class Accueil:
                 self.entry_password.configure(placeholder_text="Mot de passe erroné", placeholder_text_color="#F14156", font=("Helvetica", 18))
 
     def inscription(self):
-        self.masquer_accueil()
+        self.masquer_formulaire()
         self.afficher_formulaire_inscription()
 
     def afficher_formulaire_inscription(self):
@@ -171,7 +171,7 @@ class Accueil:
 
         self.button_back = ctk.CTkButton(self.main_frame, 
             text="Retour",
-            command=lambda:[self.masquer_formulaire_inscription(), self.afficher_accueil()],
+            command=lambda:[self.masquer_formulaire_inscription(), self.afficher_formulaire()],
             fg_color="#CCCCCC", hover_color="#AAAAAA",
             text_color="#000000", width=140, height=40,
             corner_radius=20, font=("Arial", 16, "bold")
@@ -238,9 +238,9 @@ class Accueil:
         with open("users.json", "w") as f:
             json.dump(self.liste_utilisateurs, f, indent=4)
         self.masquer_formulaire_inscription()
-        self.afficher_accueil()
+        self.afficher_formulaire()
 
-    def masquer_accueil(self):
+    def masquer_formulaire(self):
         self.label_grow.grid_remove()
         self.label_smart.grid_remove()
         self.label_subtitle.grid_remove()
