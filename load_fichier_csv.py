@@ -42,8 +42,7 @@ def load_data_from_gist():
         return None
     
     csv_content = download_csv_from_gist(gist_url)
-    print(csv_content)
-    
+
     if csv_content:
         column_names = ['Capteur 1', 'Capteur 2', 'Capteur 3', 'Capteur 4', 'Capteur 5', 'Humidité ambiante', 'Température', 'Luminosité']
         data = pd.read_csv(StringIO(csv_content), header=None, names=column_names)
