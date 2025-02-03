@@ -51,7 +51,12 @@ def load_data_from_gist():
     else:
         print("Échec du téléchargement du fichier CSV.")
         return None
+''' 
 
+Les données sont récoltées par les capteurs tous les 15 minutes. 
+À noter qu'un historique de 24h est consultable au maximum, soit 96 prises de données.
+
+'''
 # Exemple d'utilisation
 gist_id = "9d24cf5e4b6accfcf7d73615c595889d"  # ID du Gist
 data = load_data_from_gist()
