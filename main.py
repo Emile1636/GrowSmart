@@ -9,7 +9,7 @@ class Application(CTk): # Class principale
         # Initialisation de la fenêtre principale
         super().__init__()
         self.title("GrowSmart")
-        # self.attributes('-fullscreen', False) #Émile
+        # self.attributes('-fullscreen', True) #Émile
         self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+{-100}")
     
 
