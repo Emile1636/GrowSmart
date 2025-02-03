@@ -55,7 +55,7 @@ class Accueil:
         self.entry_password = ctk.CTkEntry(self.main_frame, 
             placeholder_text="Mot de passe", show="*", font=("Helvetica", 18), width=350, height=50, corner_radius=15, fg_color=placeholder_text_color, text_color="#000000", border_width=1, border_color="#000000"
         )
-        self.entry_password.grid(row=3, column=0, columnspan=2, pady=(10, 30))
+        self.entry_password.grid(row=3, column=0, columnspan=2, pady=(10, 30)) #Problème lorsque mots de passe ou utilisateur incorrect: impossible d'écrire une nouvelle réponse
 
         # Boutons
         self.button_connect = ctk.CTkButton(self.main_frame,

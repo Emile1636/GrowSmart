@@ -1,5 +1,8 @@
 {
     "Gabriel": {
         "password": "chiffrer_par_RSA_plus_tard"
+    },
+    "Philip": {
+        "password": "Pigeon"
     }
 }
