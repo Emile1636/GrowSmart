@@ -60,5 +60,5 @@ void loop() {
   Serial.println("%");
 
   Serial.println("-----------------------------");
-  delay(5000); // Attente de 5 secondes avant de recommencer
+  delay(900000); // Attente de 15 minutes avant de recommencer
 }
