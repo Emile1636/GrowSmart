@@ -62,4 +62,5 @@ data = load_data_from_gist()
 
 if data is not None:
     print("Données chargées avec succès :")
-    print(data.head())
+    print(data.head()) # 5 premières lignes (il y à 24h et moins)
+    print(data.tail()) # 5 dernières lignes (il y à 15min et plus)
