@@ -12,7 +12,6 @@ class Application(CTk): # Class principale
         # self.attributes('-fullscreen', True) #Émile
         self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+{-100}")
     
-
         self.bar_menu()
         self.interface = Interface(self)
         self.interface.pack(fill=tk.BOTH, expand=True)
