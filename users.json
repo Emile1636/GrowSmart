@@ -1,8 +1,14 @@
 {
-    "Gabriel": {
-        "password": "chiffrer_par_RSA_plus_tard"
+    "Émile": {
+        "password": "Gagnon"
     },
     "Philip": {
         "password": "Pigeon"
+    },
+    "Mariane": {
+        "password": "Angers"
+    },
+    "1": {
+        "password": "1"
     }
 }
