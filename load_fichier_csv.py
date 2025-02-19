@@ -1,7 +1,11 @@
 import pandas as pd
 import requests
-from pathlib import Path
 from io import StringIO
+
+''' 
+Les données sont récoltées par les capteurs tous les 15 minutes. 
+À noter qu'un historique de 24h est consultable au maximum, soit 96 prises de données.
+'''
 
 def get_raw_url_from_gist_api(gist_id):
     # Récupère l'URL brute du fichier CSV à partir du Gist via l'API GitHub
@@ -9,10 +13,10 @@ def get_raw_url_from_gist_api(gist_id):
     response = requests.get(url)
     
     if response.status_code == 200:
-        # Extraire l'URL brute du fichier CSV depuis la réponse de l'API
+        # Extraire l'URL brute du fichier CSV depuis la réponse 
         gist_data = response.json()
         
-        # Assurez-vous que le fichier 'data.csv' existe dans le Gist
+        # Vérifier que le fichier 'data.csv' existe dans le Gist
         if 'data.csv' in gist_data['files']:
             raw_url = gist_data['files']['data.csv']['raw_url']
             return raw_url
@@ -50,12 +54,7 @@ def load_data_from_gist():
     else:
         print("Échec du téléchargement du fichier CSV.")
         return None
-''' 
 
-Les données sont récoltées par les capteurs tous les 15 minutes. 
-À noter qu'un historique de 24h est consultable au maximum, soit 96 prises de données.
-
-'''
 # Exemple d'utilisation
 gist_id = "9d24cf5e4b6accfcf7d73615c595889d"  # ID du Gist
 data = load_data_from_gist()
