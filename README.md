@@ -1,53 +1,82 @@
-# GrowSmart
-<img width="1470" alt="Capture d’écran, le 2025-01-26 à 21 06 50" src="https://github.com/user-attachments/assets/805af699-397a-409a-9d8a-bfcbeed4ef3c" />
+# 🌿 GrowSmart
 
-## Description
+<img width="1470" alt="Capture d’écran GrowSmart" src="https://github.com/user-attachments/assets/805af699-397a-409a-9d8a-bfcbeed4ef3c" />
 
-<p>
-<strong>GrowSmart</strong> est une application qui améliore la gestion de vos plantes à domicile.  
-Simple et intuitive, elle optimise la croissance de vos plantes et <strong>vous accompagne dans leur entretien</strong>.
-<p align="justify">
-<strong>GrowSmart</strong> fonctionne en récoltant des données sur vos plantes afin d'analyser leur environnement. Une multitude d'outils sera alors à votre disposition pour suivre leur développement et favoriser leur croissance. L'objectif est simple : vous accompagner dans leur entretien afin de leur offrir un soin optimal, <strong>le soin qu'elles méritent</strong>.
-</p>
+---
 
-## Fonctionnalités & aspect évolutif
+## 📌 Description
 
-| Fonctionnalités de base| Évolutions prioritaires|Évolutions secondaires|
-| :-------------:|:-------------:|:-----:|
-| Gestion des profiles| Récolte des données en temps réel | Arrosage avec pompe à eau |
-| Analyse des données| Implémenter des alertes| Conseiller selon les données récoltées |
-| Visualisation des données | - | Alimentation par énergie solaire |
+**GrowSmart** est une application innovante qui simplifie la gestion et l’entretien des plantes d’intérieur.  
+Elle s’appuie sur un réseau de capteurs pour analyser en temps réel l’environnement de vos plantes, visualiser les données de croissance et **vous accompagner au quotidien** pour leur offrir les meilleurs soins.
 
-## Intégrations des notions scientifiques
+Des capteurs reliés à un **Arduino Mega** et un **Raspberry Pi 5** collectent :
+- l’humidité du sol,
+- l’humidité et la température ambiantes,
+- l’intensité et la qualité de la lumière (spectre lumineux).
+
+Toutes ces données sont traitées, stockées et affichées sous forme de **graphiques dynamiques** et de **tableaux interactifs** (DataFrame) pour suivre les tendances, détecter les variations et ajuster l’entretien.
+
+---
+
+## ⚙️ Fonctionnalités & Évolutivité
+
+| Fonctionnalités de base | Évolutions prioritaires | Évolutions futures |
+| :---------------------: | :---------------------: | :----------------: |
+| Création de profils sécurisés (RSA) | Collecte de données en temps réel | Arrosage automatisé via pompe |
+| Analyse des données (graphiques, dérivées) | Système d’alertes personnalisées | Conseils automatiques basés sur l’historique |
+| Visualisation claire et intuitive | - | Alimentation par panneaux solaires |
+
+---
+
+## 🧩 Intégrations scientifiques
 
 ### Mathématiques discrètes
- - **Chiffrement RSA** : Chiffrer les informations de connexion des utilisateurs
- - **Graph** : Représentation visuel en tout genre sur les plantes et leur environnement 
-### Calcul différentiel 
- - **Dériver et taux de variation** : Détecter l'intensiter des variations de l'environnement afin d'alerter l'utilisateur
- - **Prédications grâce aux fonctions** : Prédire les fluctuations de l'environnement
-### Ondes et physique moderne
- - **Énergie des photons** : Mesurer la quantité d'énergie brut émise par la lumière et la représenter graphiquement
+- **Chiffrement RSA** : Sécurisation des informations de connexion.
+- **Théorie des graphes** : Représentation visuelle des liens entre paramètres environnementaux.
+
+### Calcul différentiel
+- **Dérivées et taux de variation** : Détection des variations anormales.
+- **Prédictions** : Estimation des fluctuations futures de l’environnement.
+
+### ☀Ondes et physique moderne
+- **Énergie des photons** : Calcul de l’énergie lumineuse absorbée par la plante grâce à l’analyse spectrale.
 
 > [!NOTE]
-> L'implémentation des notions scientifiques est l'objectif au coeur du projet.
+> *Les notions scientifiques appliquées sont au cœur de la valeur ajoutée du projet.*
 
-## Technologies embarqués
+---
+
+## 🔌 Technologies & Matériel
 
 ### Capteurs
- - Capteur d'humidité du sol : *Capacitive soil moisture sensor v1.2*
- - Capteur de température et d'humidité ambiant : *DHT22*
- - Capteur d'intensité lumineuse : *BH1750FVI*
- - Capteur de couleur spectrale : *AS7341*
+- *Capacitive soil moisture sensor v1.2* : humidité du sol
+- *DHT22* : température et humidité ambiantes
+- *BH1750FVI* : intensité lumineuse
+- *AS7341* : spectre de la lumière
+
 ### Contrôleurs
- - Arduino Mega
- - Raspberry Pi 5
-### Accesoires
- - Cables divers, résistances et platine d'expérimentation (*breadboard*)
+- **Arduino Mega**
+- **Raspberry Pi 5**
+
+### Accessoires
+- Breadboard, câbles, résistances diverses.
 
 > [!NOTE]
-> <p align="justify">Les données sont récoltées par les capteurs toutes les 15 minutes. Les informations brutes, une fois traitées par l'Arduino, sont alors envoyées au Raspberry Pi. Celui-ci actualise alors un fichier CSV accessible par tous et consultable en ligne contenant les données traitées une première fois. L'application se charge alors de récolter ces données, de les associer à l'utilisateur et de les analyser. À noter qu'un historique de 24 h est consultable au maximum, soit 96 prises de données.</p>
+> *Les données sont relevées toutes les **15 minutes**, stockées dans un fichier CSV mis à jour par le Raspberry Pi, puis traitées et affichées dans l’application.*
 
-## Contexte et objectif
+---
 
-Ce projet fait partie d'un cours de fin de parcours où l'application des apprentissage spécifique au programme de SIM *(Sciences informatique et mathématiques)* est l'objectif principale. Merci de votre compréhension.
+## 🎓 Contexte pédagogique
+
+**GrowSmart** est un projet développé dans le cadre d’un cours de fin d’études du programme **Sciences informatiques et mathématiques (SIM)**.  
+L’objectif est de **mobiliser concrètement** des connaissances théoriques (maths, physique, algorithmique) dans une application **utile et fonctionnelle**.
+
+---
+
+## 📎 Liens utiles
+
+- [Vidéo démonstrative](https://drive.google.com/file/d/1M_vgP-oa0pE34ki26zvUVhoOBK-4dBAW/view?usp=sharing)
+
+---
+
+ *Merci de votre intérêt pour GrowSmart !*
