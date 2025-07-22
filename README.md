@@ -61,6 +61,8 @@ Toutes ces données sont traitées, stockées et affichées sous forme de **grap
 ### Accessoires
 - Breadboard, câbles, résistances diverses.
 
+<img width="672" height="762" alt="Montage copie" src="https://github.com/user-attachments/assets/e08f60c4-994d-4dc4-a4f9-56ad14b4e3dc" />
+
 > [!NOTE]
 > *Les données sont relevées toutes les **15 minutes**, stockées dans un fichier CSV mis à jour par le Raspberry Pi, puis traitées et affichées dans l’application.*
 
