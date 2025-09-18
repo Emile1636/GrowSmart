@@ -10,9 +10,9 @@
 Elle s’appuie sur un réseau de capteurs pour analyser en temps réel l’environnement de vos plantes, visualiser les données de croissance et **vous accompagner au quotidien** pour leur offrir les meilleurs soins.
 
 Des capteurs reliés à un **Arduino Mega** et un **Raspberry Pi 5** collectent :
-- l’humidité du sol,
-- l’humidité et la température ambiantes,
-- l’intensité et la qualité de la lumière (spectre lumineux).
+- l’humidité du sol
+- l’humidité et la température ambiantes
+- l’intensité et la qualité de la lumière (spectre lumineux)
 
 Toutes ces données sont traitées, stockées et affichées sous forme de **graphiques dynamiques** et de **tableaux interactifs** (DataFrame) pour suivre les tendances, détecter les variations et ajuster l’entretien.
 
@@ -60,12 +60,13 @@ Toutes ces données sont traitées, stockées et affichées sous forme de **grap
 - *AS7341* : spectre de la lumière
 
 ### Contrôleurs
-- **Arduino Mega**
-- **Raspberry Pi 5**
+- Arduino Mega
+- Raspberry Pi 5
 
 ### Accessoires
 - Breadboard, câbles, résistances diverses.
 
+### Figure du circuit
 <img width="75%" alt="Montage copie" src="https://github.com/user-attachments/assets/e08f60c4-994d-4dc4-a4f9-56ad14b4e3dc" />
 
 > [!NOTE]
