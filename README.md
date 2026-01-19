@@ -9,7 +9,7 @@
 **GrowSmart** est une application innovante qui simplifie la gestion et l’entretien des plantes d’intérieur.  
 Elle s’appuie sur un réseau de capteurs pour analyser en temps réel l’environnement de vos plantes, visualiser les données de croissance et **vous accompagner au quotidien** pour leur offrir les meilleurs soins.
 
-Des capteurs reliés à un **Arduino Mega** et un **Raspberry Pi 5** collectent :
+Des capteurs reliés à un **Arduino Mega** et un **Raspberry Pi** collectent :
 - l’humidité du sol
 - l’humidité et la température ambiantes
 - l’intensité et la qualité de la lumière (spectre lumineux)
