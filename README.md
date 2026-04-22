@@ -83,10 +83,10 @@ L’objectif est de **mobiliser concrètement** des connaissances théoriques (m
 
 ---
 
-## 📎 Liens utiles
+<!-- ## 📎 Liens utiles -->
 
-- [Vidéo démonstrative](https://drive.google.com/file/d/1M_vgP-oa0pE34ki26zvUVhoOBK-4dBAW/view?usp=sharing)
+<!-- - [Vidéo démonstrative](https://drive.google.com/file/d/1M_vgP-oa0pE34ki26zvUVhoOBK-4dBAW/view?usp=sharing) -->
 
----
+<!-- --- -->
 
  *Merci de votre intérêt pour GrowSmart !*
